@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>{% block title %}{% endblock title %} | GDC@UMD</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    </head>
+    <body>
+    <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-left">
+                <li role="presentation" {% if request.path == '/' %}class="active"{% endif %}>
+                    <a href="{{ url_for('index') }}">Home</a>
+                </li>
+                <li role="presentation" {% if '/ideas' in request.path %}class="active"{% endif %}>
+                    <a href="{{ url_for('ideas') }}">Ideas</a>
+                </li>
+            </ul>
+            <ul class="nav nav-pills pull-right">
+                <li role="presentation" {% if '/gallery' in request.path %}class="active"{% endif %}>
+                    <a href="{{ url_for('gallery') }}">Gallery</a>
+                </li>
+                <li role="presentation" {% if '/about' in request.path %}class="active"{% endif %}>
+                    <a href="{{ url_for('about') }}">About</a>
+                </li>
+                <li role="presentation" {% if '/resources' in request.path %}class="active"{% endif %}>
+                    <a href="{{ url_for('resources') }}">Resources</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <hr>
+    <div class="content">
+    {% block content %}
+    NO BODY!
+    {% endblock content %}
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    </body>
+
+
+</html>
